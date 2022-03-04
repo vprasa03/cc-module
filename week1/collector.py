@@ -24,7 +24,7 @@ if len(sys.argv) < 2:
         "server1": 29,
         "server2": 40,
         "server3": 31,
-        "server4": 18,
+        "server4": 58,
         "server5": 15,
         "server6": 14,
         "server7": 3,
@@ -34,7 +34,8 @@ if len(sys.argv) < 2:
     print_usage(data)
 else:
     rq = requests.get(sys.argv[1])
-    print("Status: " + str(rq.status_code))
     if rq.status_code == 200:
         data = rq.json()
         print_usage(data)
+    else:
+        print("Request failed with status " + str(rq.status_code))
